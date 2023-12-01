@@ -60,4 +60,17 @@ for index , line in enumerate(f):
 #####################
 #### challenge 5 ####
 
+import sys
+f = open(sys.argv[1])
+wl = open(sys.argv[2])
+allvalid = True
+validwordlist = wl.readlines()
+for line in f:
+    words = line.split(" ")
+    for index in range(0, len(words)):
+        if not words[index] in validwordlist:
+            print(f"\nthe word {words[index]} is not valid")
+            allvalid = False
+if allvalid == True:
+    print("\nall words are valid")
 
