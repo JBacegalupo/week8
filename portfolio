@@ -1,0 +1,63 @@
+###################
+#### portfolio ####
+###################
+
+#### challenge 1 ####
+
+import sys
+
+if __name__ == "__main__":
+    filepath = sys.argv[1]
+    f = open(filepath)
+    for index , line in enumerate(f):
+        print(f"{index} {line}")
+#####################
+
+#### challenge 2 ####
+
+import difflib
+import sys
+
+nodiff = True
+
+with open(sys.argv[1]) as f1:
+    f1text = f1.readlines()
+with open(sys.argv[2]) as f2:
+    f2text = f2.readlines()
+
+for line in difflib.unified_diff(f1text , f2text, fromfile= sys.argv[1] , tofile=sys.argv[2], lineterm=""):
+    print(line)
+    nodiff = False
+if nodiff == True:
+    print("the files are the same")
+#####################
+
+#### challenge 3 ####
+
+import sys
+searchstr = sys.argv[1]
+
+f = open(sys.argv[2])
+
+for index , line in enumerate(f):
+    if searchstr in line:
+        print(f"{index + 1} {line}")
+#####################
+
+
+#### challenge 4 ####
+import sys
+f = open(sys.argv[1])
+totallines = len(f.readlines())
+f.seek(0)
+charactercount = 0
+currentline = ""
+for index , line in enumerate(f):
+    if not (index + 1) == totallines:
+        print(len(line)- 1)
+    else:
+        print(len(line))
+#####################
+#### challenge 5 ####
+
+
